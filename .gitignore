@@ -41,6 +41,7 @@ out/
 
 ### Exclusions ###
 !gradle/wrapper/gradle-wrapper.jar
+!artifacts/*.jar
 !**/src/main/**
 !**/src/test/**
 .gigaide
