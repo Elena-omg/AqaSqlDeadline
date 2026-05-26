@@ -1,17 +1,37 @@
 package ru.netology.aqa.page;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
     private final SelenideElement loginField = $("[data-test-id='login'] input");
     private final SelenideElement passwordField = $("[data-test-id='password'] input");
     private final SelenideElement loginButton = $("[data-test-id='action-login']");
+    private final SelenideElement errorNotification = $("[data-test-id='error-notification']");
 
     public VerificationPage validLogin(String login, String password) {
         loginField.setValue(login);
         passwordField.setValue(password);
         loginButton.click();
+
+            SelenideElement okButton = $("button:contains('ОК'), *[data-test-id='ok-button']");
+            if (okButton.exists()) {
+                okButton.click();
+            }
         return new VerificationPage();
+    }
+
+    public LoginPage login(String login, String password) {
+        loginField.setValue(login);
+        passwordField.setValue(password);
+        loginButton.click();
+        return this;
+    }
+
+    public void shouldSeeErrorNotification(String expectedText) {
+        errorNotification.shouldBe(visible).shouldHave(text(expectedText));
     }
 }

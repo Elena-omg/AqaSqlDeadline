@@ -1,7 +1,6 @@
 services:
-  mysqldb:
-    image: mysql:8.0.18
-    restart: always
+  mysql:
+    image: mysql:8.0.34
     ports:
       - '3306:3306'
     volumes:
