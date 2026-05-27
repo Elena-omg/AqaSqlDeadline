@@ -1,6 +1,5 @@
 package ru.netology.aqa.page;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -16,11 +15,6 @@ public class LoginPage {
         loginField.setValue(login);
         passwordField.setValue(password);
         loginButton.click();
-
-            SelenideElement okButton = $("button:contains('ОК'), *[data-test-id='ok-button']");
-            if (okButton.exists()) {
-                okButton.click();
-            }
         return new VerificationPage();
     }
 

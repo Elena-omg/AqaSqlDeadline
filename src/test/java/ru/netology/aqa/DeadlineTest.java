@@ -12,8 +12,6 @@ public class DeadlineTest {
 
     @BeforeAll
     static void setUpAll() {
-        Configuration.browser = "chrome";
-        Configuration.headless = true;
         SQLHelper.clearData();
         SQLHelper.setUserPassword("vasya", "$2a$10$O5CBjM0kBscP2k0UE2CqPeXKvXvQs8jXqHzqB3Ee8n/8O8w7sZi.");
     }
