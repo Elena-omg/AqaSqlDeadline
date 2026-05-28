@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SQLHelper {
-    private static final String URL = "jdbc:mysql://localhost:3306/app";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/app";
     private static final String USER = "app";
     private static final String PASS = "pass";
     private static final QueryRunner runner = new QueryRunner();
